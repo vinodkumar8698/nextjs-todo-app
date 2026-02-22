@@ -3,6 +3,8 @@ on:
     push:
         branches:
             - main
+env:
+    IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/nextjs-todo-app:latest
 
 jobs:
     build:
@@ -11,22 +13,22 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v3
             - name: build docker image
-              run: docker build -t nextjs-todo-app:latest .
+              run: docker build -t $IMAGE_NAME .
             - name: Login to DockerHub
-              run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+              run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
             - name: Push to DockerHub
-              run: docker push nextjs-todo-app:latest
+              run: docker push $IMAGE_NAME
     
     deploy:
         needs: build
         runs-on: self-hosted
         steps:
             - name: Pull Docker Image
-              run: docker pull nextjs-todo-app:latest
+              run: docker pull $IMAGE_NAME
             - name: Delete old container if exists
               run: docker rm -f nextjs-todo-app-container || true
             - name: Run Docker Container
-              run: docker run -d -p 8698:8698 --name nextjs-todo-app-container nextjs-todo-app:latest
+              run: docker run -d -p 8698:8698 --name nextjs-todo-app-container $IMAGE_NAME
 
 
         
