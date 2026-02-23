@@ -28,4 +28,4 @@ jobs:
       - name: Delete old container if exists
         run: docker rm -f nextjs-todo-app-container || true
       - name: Run Docker Container
-        run: docker run -d -p 8698:8698 --name nextjs-todo-app-container $IMAGE_NAME
+        run: docker run -d -p 8698:3000 --name nextjs-todo-app-container $IMAGE_NAME

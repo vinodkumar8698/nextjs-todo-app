@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <h1>Vinodkumar Kanike</h1>
+      <h1>Vinodkumar muniraj Kanike</h1>
     </div>
   );
 }
