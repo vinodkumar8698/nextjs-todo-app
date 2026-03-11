@@ -8,3 +8,6 @@ export const store = configureStore({
     ProductList: productListSliceReducer
   }
 })
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

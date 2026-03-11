@@ -3,13 +3,14 @@ import { CSSProperties, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CartState, Product } from "../types";
 import { removeFromCart, updateCart } from "../redux/cartSlice";
+import type { AppDispatch } from "../redux/store";
 import Image from "next/image";
 import Input from "../components/Input";
 import Button from "../components/Button";
 
 
 const Cart = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const cartItems = useSelector((state: CartState) => state.cart.cartItems);
     if (cartItems.length === 0) {
         return <h3>Your cart is empty 🛒</h3>;

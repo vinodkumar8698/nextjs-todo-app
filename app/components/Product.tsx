@@ -1,11 +1,14 @@
+"use client"
+
 import { useDispatch, useSelector } from "react-redux"
 import Image from "next/image";
 import { addToCart, removeFromCart } from "../redux/cartSlice";
+import type { AppDispatch } from "../redux/store";
 import { CartState, Product } from "../types";
 
 
 const ProductCard = ({ product }: { product: Product }) => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const cartItems = useSelector((state: CartState) => state.cart.cartItems)
 
     return (

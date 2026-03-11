@@ -34,7 +34,7 @@ body {
     background: #222;
     color: white;
     position: sticky;
-    /* top: 0; */
+    top: 0;
     width: 100%;
   }
   
@@ -87,4 +87,10 @@ button:disabled{
   opacity: 0.5;
   background: gray;
   color: white;
+}
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
