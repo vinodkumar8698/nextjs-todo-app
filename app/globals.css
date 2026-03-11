@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0ac6;
+    --foreground: #b5a9a9;
   }
 }
 
@@ -23,4 +23,68 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 10px 20px 10px 20px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: #222;
+    color: white;
+    position: sticky;
+    /* top: 0; */
+    width: 100%;
+  }
+  
+  /* Navigation */
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 25px;
+    font-size: 16px;
+  }
+  
+  nav a:hover {
+    color: #00c3ff;
+  }
+  
+  /* Right section */
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Cart */
+  
+  .cart {
+    position: relative;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* Cart count badge */
+  
+  .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button:disabled{
+  opacity: 0.5;
+  background: gray;
+  color: white;
 }
